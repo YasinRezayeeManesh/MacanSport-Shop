@@ -1,0 +1,77 @@
+<footer class="cs_fooer cs_bg_filed" data-src="/assets/img/footer_bg.jpg"
+        style="background-image: url(&quot;/assets/img/footer_bg.jpg&quot;);">
+    <div class="cs_fooer_main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="cs_footer_item">
+                        <div class="cs_text_widget"><img src="/assets/img/logo_white.svg" alt="Logo"></div>
+                        <ul class="cs_menu_widget cs_mp0">
+                            <li>{{ info_site.address }}</li>
+                            <li>{{ info_site.mobile1 }}</li>
+                            {% if info_site.mobile2 %}
+                                <li>{{ info_site.mobile2 }}</li>
+                            {% endif %}
+                            {% if info_site.mobile3 %}
+                                <li>{{ info_site.mobile3 }}</li>
+                            {% endif %}
+                            <li>{{ info_site.email }}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="cs_footer_item">
+                        <h2 class="cs_widget_title">پیوندها</h2>
+                        <ul class="cs_menu_widget cs_mp0">
+                            <li><a href="{% url 'home_page' %}">صفحه اصلی</a></li>
+                            <li><a href="{% url 'product_list' %}">محصولات</a></li>
+                            <li><a href="{% url 'about_us' %}">درباره ما</a></li>
+                            <li><a href="{% url 'service' %}">خدمات</a></li>
+                            <li>
+                                <a href="{% url 'article_list' %}">وبلاگ</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="cs_bottom_footer">
+            <div class="cs_bottom_footer_left">
+                <div class="cs_social_btns cs_style_1">
+                    <a href="https://t.me/{{ info_site.telegram }}" class="cs_center">
+                        <i class="fa-brands fa-telegram"></i>
+                    </a>
+                    <a href="https://instagram.com/{{ info_site.instagram }}" class="cs_center">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/{{ info_site.whatsapp }}" class="cs_center">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="cs_copyright">تمامی حقوق سایت محفوظ میباشد ©</div>
+        </div>
+    </div>
+</footer>
+<span class="cs_scrollup">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" mxmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10L1.7625 11.7625L8.75 4.7875V20H11.25V4.7875L18.225 11.775L20 10L10 0L0 10Z"
+                  fill="currentColor"></path>
+        </svg>
+    </span>
+<div class="cs_video_popup">
+    <div class="cs_video_popup-overlay"></div>
+    <div class="cs_video_popup-content">
+        <div class="cs_video_popup-layer"></div>
+        <div class="cs_video_popup-container">
+            <div class="cs_video_popup-align">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="about:blank"></iframe>
+                </div>
+            </div>
+            <div class="cs_video_popup-close"></div>
+        </div>
+    </div>
+</div>

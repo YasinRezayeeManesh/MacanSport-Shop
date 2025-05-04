@@ -1,0 +1,63 @@
+{% extends 'shared/_layout.html' %}
+
+
+{% block title %}
+    جزییات خدمات
+{% endblock %}
+
+
+{% block content %}
+    <body>
+    <div class="cs_height_70 cs_height_lg_70"></div>
+    <div class="cs_section_heading cs_style_1 cs_type_3 ">
+        <div class="container">
+            <div class="cs_height_20 cs_height_lg_10"></div>
+            <h2 class="cs_section_title cs_fs_68 mb-0">{{ service.name }}</h2>
+        </div>
+        <div class="cs_shape_3"></div>
+    </div>
+    <div class="cs_height_75 cs_height_lg_60"></div>
+    <div class="cs_service_info">
+        <div class="container">
+            <div class="row align-items-center cs_gap_y_40">
+                <div class="col-lg-6">
+                    <div class="cs_service_info_thumb cs_bg_filed" data-src="{{ service.image.url }}"
+                         style="background-image: url({{ service.image.url }});"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row cs_gap_y_40">
+                        <div class="col-sm-6">
+                            <div class="cs_number_box cs_style_1">
+                                <h3 class="cs_number_box_number cs_semibold cs_accent_bg cs_fs_29 cs_center">01</h3>
+                                <h2 class="cs_number_box_title cs_fs_29 cs_semibold">{{ service.title_1 }}</h2>
+                                <p class="mb-0">{{ service.description_1 }}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="cs_number_box cs_style_1">
+                                <h3 class="cs_number_box_number cs_semibold cs_accent_bg cs_fs_29 cs_center">02</h3>
+                                <h2 class="cs_number_box_title cs_fs_29 cs_semibold">{{ service.title_2 }}</h2>
+                                <p class="mb-0">{{ service.description_2 }}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="cs_number_box cs_style_1">
+                                <h3 class="cs_number_box_number cs_semibold cs_accent_bg cs_fs_29 cs_center">03</h3>
+                                <h2 class="cs_number_box_title cs_fs_29 cs_semibold">{{ service.title_3 }}</h2>
+                                <p class="mb-0">{{ service.description_3 }}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="cs_number_box cs_style_1">
+                                <h3 class="cs_number_box_number cs_semibold cs_accent_bg cs_fs_29 cs_center">04</h3>
+                                <h2 class="cs_number_box_title cs_fs_29 cs_semibold">{{ service.title_4 }}</h2>
+                                <p class="mb-0">{{ service.description_4 }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cs_height_150 cs_height_lg_80"></div>
+{% endblock %}

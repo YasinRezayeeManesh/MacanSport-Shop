@@ -1,0 +1,93 @@
+{% extends 'shared/_layout.html' %}
+
+
+{% block title %}
+    خدمات ما
+{% endblock %}
+
+
+{% block content %}
+    <div class="cs_height_140 cs_height_lg_80"></div>
+    <div class="cs_section_heading cs_style_1 cs_type_3 ">
+        <div class="container">
+            <p class="cs_section_subtitle cs_accent_color cs_fs_21 mb-0 wow fadeInLeft" data-wow-duration="0.8s"
+               data-wow-delay="0.2s"
+               style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInLeft;">
+                خدمات ما</p>
+            <div class="cs_height_20 cs_height_lg_10"></div>
+            <h2 class="cs_section_title cs_fs_68 mb-0">ارائه خدمات جامع با بالاترین کیفیت</h2>
+        </div>
+        <div class="cs_shape_2"></div>
+    </div>
+    <div class="cs_height_75 cs_height_lg_60"></div>
+    <div class="container">
+        <ul class="cs_image_box_1_list cs_mp0">
+            {% for service in services %}
+                <li>
+                    <div class="cs_image_box cs_style_1">
+                        <a href="{% url 'service_detail' slug=service.slug %}"
+                           class="cs_image_box_img cs_radius_5 overflow-hidden">
+                            <img src="{{ service.main_image.url }}" alt="Service">
+                        </a>
+                        <div class="cs_image_box_info position-relative">
+                            <h2 class="cs_image_box_title cs_fs_29 cs_semibold">
+                                <a href="{% url 'service_detail' slug=service.slug %}">{{ service.name }}</a>
+                            </h2>
+                            <p class="cs_image_box_subtitle mb-0">{{ service.short_description }}</p>
+                            <a href="{% url 'service_detail' slug=service.slug %}"
+                               class="cs_image_box_btn cs_center position-absolute rounded-circle">
+                                <svg width="30" height="29" viewBox="0 0 30 29" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M29.3803 3.05172C29.4089 1.94752 28.537 1.02921 27.4328 1.00062L9.43879 0.534749C8.33459 0.506159 7.41628 1.37811 7.38769 2.48231C7.35911 3.58651 8.23106 4.50482 9.33526 4.53341L25.3299 4.94752L24.9158 20.9422C24.8872 22.0464 25.7592 22.9647 26.8634 22.9933C27.9676 23.0218 28.8859 22.1499 28.9144 21.0457L29.3803 3.05172ZM3.37714 28.5502L28.7581 4.4503L26.0039 1.54961L0.622863 25.6495L3.37714 28.5502Z"
+                                          fill="currentColor"></path>
+                                </svg>
+                                <svg width="30" height="29" viewBox="0 0 30 29" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M29.3803 3.05172C29.4089 1.94752 28.537 1.02921 27.4328 1.00062L9.43879 0.534749C8.33459 0.506159 7.41628 1.37811 7.38769 2.48231C7.35911 3.58651 8.23106 4.50482 9.33526 4.53341L25.3299 4.94752L24.9158 20.9422C24.8872 22.0464 25.7592 22.9647 26.8634 22.9933C27.9676 23.0218 28.8859 22.1499 28.9144 21.0457L29.3803 3.05172ZM3.37714 28.5502L28.7581 4.4503L26.0039 1.54961L0.622863 25.6495L3.37714 28.5502Z"
+                                          fill="currentColor"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="cs_height_50 cs_height_lg_50"></div>
+        <ul class="cs_pagination_box cs_white_color cs_mp0 justify-content-center">
+            {% if page_obj.has_previous %}
+                <li>
+                    <a href="?page={{ page_obj.previous_page_number }}"
+                       class="cs_pagination_item cs_center hover_blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor" class="size-6" width="22">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M3 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061A1.125 1.125 0 0 1 3 16.811V8.69ZM12.75 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061a1.125 1.125 0 0 1-1.683-.977V8.69Z"></path>
+                        </svg>
+                    </a>
+                </li>
+            {% endif %}
+
+            {% for pageNumber in paginator.page_range %}
+                <li>
+                    <a class="cs_pagination_item cs_center {% if page_obj.number == pageNumber %} active {% endif %}"
+                       href="?page={{ pageNumber }}">{{ pageNumber }}</a></li>
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <li>
+                    <a href="?page={{ page_obj.next_page_number }}"
+                       class="cs_pagination_item cs_center hover_blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor" class="size-6" width="22">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M21 16.811c0 .864-.933 1.406-1.683.977l-7.108-4.061a1.125 1.125 0 0 1 0-1.954l7.108-4.061A1.125 1.125 0 0 1 21 8.689v8.122ZM11.25 16.811c0 .864-.933 1.406-1.683.977l-7.108-4.061a1.125 1.125 0 0 1 0-1.954l7.108-4.061a1.125 1.125 0 0 1 1.683.977v8.122Z"></path>
+                        </svg>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="cs_height_150 cs_height_lg_80"></div>
+{% endblock %}

@@ -1,0 +1,150 @@
+.color-red {
+    color: red;
+}
+
+.color-green {
+    color: #56cd1e;
+}
+
+.color-blue{
+    color: #1944fd;
+}
+
+.color-hover-blue:hover {
+    color: #1944fd;
+    svg{
+        color: #1944fd;
+    }
+}
+
+.custom-form {
+    input {
+        margin-bottom: 10px;
+        margin-top: 5px;
+        height: 55px;
+        border: 1px solid #dfdfdf;
+        background-color: #fff;
+        color: #030303;
+        border-radius: 4px;
+        font-size: 18px;
+        padding: 10px 20px;
+        width: 100%;
+        transition: all ease .5s;
+    }
+
+    input:focus {
+        color: #000;
+        background-color: rgba(0, 0, 0, 0);
+        box-shadow: unset;
+        outline: 0;
+        border-color: #1944fd
+    }
+
+    .errorlist {
+        margin-top: 10px;
+        color: red;
+    }
+}
+
+.custom-social{
+    transition: all 150ms ease;
+    padding: 5px;
+}
+
+.hover_blue:hover{
+    color: #1944fd;
+    border-radius: 30%;
+    box-shadow: 0 0 0 2px #1944fd;
+}
+
+.hover-green:hover{
+    color: #30b830;
+    border-radius: 30%;
+    box-shadow: 0 0 0 2px #30b830;
+}
+
+.hover-red:hover{
+    color: red;
+    border-radius: 30%;
+    box-shadow: 0 0 0 2px red;
+    .hide{
+        opacity: 0;
+    }
+}
+
+.hover-pink:hover{
+    color: deeppink;
+    border-radius: 30%;
+    box-shadow: 0 0 0 2px deeppink;
+}
+
+.margin-bottom-30{
+    margin-bottom: 30px;
+}
+
+.margin-right{
+    margin-right: 10px;
+}
+
+
+.margin-right-50{
+    margin-right: 50px;
+}
+
+.comment-profile{
+    border-radius: 50%;
+}
+
+.color-black{
+    color: black;
+}
+
+.form-profile {
+    border: 1px solid #dfdfdf;
+    padding: 30px;
+    border-radius: 4px;
+
+    .errorlist {
+        margin-top: 20px;
+        color: red;
+    }
+}
+
+.profile_panel {
+    height: 200px;
+    width: 40%;
+    margin-right: 60%;
+    border-radius: 100px;
+    margin-bottom: 30px;
+
+}
+
+.gap-6{
+    gap: 4rem;
+}
+
+.pyment-page{
+    margin-top: 30px;
+    border: 1px solid black;
+    width: 50%;
+    height: 300px;
+    border-radius: 2%;
+}
+
+.text_align{
+    text-align: right;
+    margin-right: 10%;
+}
+
+.search-btn{
+    border: none;
+    background: transparent;
+    margin-top: 10px;
+    transition: all 150ms ease;
+}
+
+.search-btn:hover{
+    border-radius: 10%;
+    box-shadow: 0 0 0 2px #1944fd;
+    padding: 3px;
+}

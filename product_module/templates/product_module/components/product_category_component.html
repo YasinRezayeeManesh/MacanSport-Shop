@@ -1,0 +1,25 @@
+<ul class="cs_shop_sidebar_category_list">
+    {% for category in categories_mother %}
+        <li>
+            <div class="d-flex tag-category">
+                {% if category.image %}
+                	<img src='{{ category.image.url }}' alt="">
+                {% endif %}
+                <a href="{% url 'product_category_main' main_category=category.url_title %}">{{ category.title }}</a>
+            </div>
+        </li>
+    {% endfor %}
+    <li>
+        <a class="cs_bold" href="{% url 'product_list' %}">حذف فیلتر</a>
+    </li>
+    {% for category in main_categories %}
+        <li>
+            <div class="d-flex tag-category">
+                {% if category.image %}
+                	<img src='{{ category.image.url }}' alt="">
+                {% endif %}
+                <a href="{% url 'product_category' category=category.url_title %}">{{ category.title }}</a>
+            </div>
+        </li>
+    {% endfor %}
+</ul>

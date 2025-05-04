@@ -1,0 +1,58 @@
+{% extends 'shared/_layout.html' %}
+
+
+{% block title %}
+    ورود
+{% endblock %}
+
+
+{% block content %}
+    <div class="cs_height_88 cs_height_lg_60"></div>
+    <div class="cs_section_heading cs_style_1 cs_type_3 ">
+        <div class="container">
+            <p class="cs_section_subtitle cs_accent_color cs_fs_21 mb-0 wow fadeInLeft" data-wow-duration="0.8s"
+               data-wow-delay="0.2s"
+               style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInLeft;">
+                ثبت نام / ورود</p>
+            <div class="cs_height_20 cs_height_lg_10"></div>
+            <h2 class="cs_section_title cs_fs_68 mb-0">وارد حساب کاربری خود شوید!</h2>
+        </div>
+        <div class="cs_shape_4"><img src="/assets/img/icons/mail.svg" alt="Mail"></div>
+    </div>
+    <div class="cs_height_88 cs_height_lg_60"></div>
+    <section>
+        <div class="container">
+            <div class="row cs_gap_y_45">
+                <div class="col-lg-6">
+                    <h2 class="cs_fs_50">حساب کاربری ندارید؟</h2>
+                    <h5>
+                        <a href="{% url 'register_page' %}" class="color-red color-hover-blue">یک حساب کاربری ایجاد
+                            کنید</a>
+                    </h5>
+                </div>
+                <div class="col-lg-6">
+                    <div class="cs_contact_form_wrap">
+                        <div class="cs_gray_bg_3 cs_contact_form_bg"></div>
+                        <form method="post" action="{% url 'login_page' %}" class="cs_contact_form">
+                            {% csrf_token %}
+                            <div class="custom-form">
+                                {{ login_form }}
+                            </div>
+                            <div class="cs_height_10 cs_height_lg_10"></div>
+                            <h6>
+                                <a href="{% url 'forgot_pass' %}" class="color-red color-hover-blue">فراموشی کلمه
+                                    عبور</a>
+                            </h6>
+                            <div class="cs_height_38 cs_height_lg_25"></div>
+                            <button class="cs_btn cs_style_1">ورود
+                                <span><i class="fa-solid fa-arrow-right"></i></span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cs_height_0 cs_height_lg_80"></div>
+    </section>
+    <div class="cs_height_88 cs_height_lg_60"></div>
+{% endblock %}

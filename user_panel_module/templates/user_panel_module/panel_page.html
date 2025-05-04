@@ -1,0 +1,54 @@
+{% extends 'shared/_layout.html' %}
+{% load render_partial %}
+
+
+{% block title %}
+    پنل کاربری
+{% endblock %}
+
+
+{% block content %}
+    <div class="cs_height_125 cs_height_lg_50"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                {% render_partial 'user_panel_module.views.user_panel_menu_component' %}
+                <br>
+                <img src="/assets/img/panel_pic.png" alt="" class="margin-img">
+            </div>
+            <div class="col-md-8 form-profile">
+
+                {% if user.avatar %}
+                    <a href="{{ user.avatar.url }}"
+                       data-lightbox="profile-avatar profile_panel">
+                        <img src="{{ user.avatar.url }}" alt="" class="profile_panel">
+                    </a>
+                {% else %}
+                    <img src="/assets/img/pngkey.com-blank-face-png-9886269.png" alt="" class="profile_panel">
+                {% endif %}
+
+                <div class="information-form">
+                    <p class="information">
+                        <b>نام :</b> {{ user.first_name }}
+                    </p>
+                    <p class="information">
+                        <b>نام خانوادگی :</b> {{ user.last_name }}
+                    </p>
+                    <p class="information">
+                        <b>آدرس ایمیل :</b> {{ user.email }}
+                    </p>
+                    <p class="information">
+                        <b>شماره تماس :</b> {{ user.mobile }}
+                    </p>
+                    <p class="information">
+                        <b>آدرس محل سکونت :</b> {{ user.address }}
+                    </p>
+                    <p class="information">
+                        <b>درباره شخص :</b> {{ user.about_user }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="cs_height_125 cs_height_lg_50"></div>
+    </div>
+{% endblock %}

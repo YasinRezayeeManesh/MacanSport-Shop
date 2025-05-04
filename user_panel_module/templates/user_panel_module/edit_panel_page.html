@@ -1,0 +1,37 @@
+{% extends 'shared/_layout.html' %}
+{% load render_partial %}
+
+
+{% block title %}
+    ویرایش اطلاعات
+{% endblock %}
+
+
+{% block content %}
+    <div class="cs_height_125 cs_height_lg_50"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                {% if current_user.avatar %}
+                    <a style="border-radius: 20px" class="thumbnail">
+                        <img src="{{ current_user.avatar.url }}" alt="Profile"
+                             style="width: 95%; border-radius: 20px; height: 200px">
+                    </a>
+                {% else %}
+                    <img src="/assets/img/pngkey.com-blank-face-png-9886269.png" alt="" style="width: 95%; border-radius: 20px; height: 200px">
+                {% endif %}
+                <div class="cs_height_40 cs_height_lg_40"></div>
+                {% render_partial 'user_panel_module.views.user_panel_menu_component' %}
+            </div>
+            <div class="col-md-8">
+                <form enctype="multipart/form-data" action="" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="cs_btn cs_style_1">ثبت</button>
+                    <p class="color-red cs_bold text-center">در صورت درخواست تعویض شماره تماس ، لطفا در شبکه های اجتماعی به پشتیبانی ما پیام بدهید</p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="cs_height_125 cs_height_lg_50"></div>
+{% endblock %}

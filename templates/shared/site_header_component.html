@@ -1,0 +1,73 @@
+<header class="cs_site_header cs_style_1 cs_color_1 cs_sticky_header">
+    <div class="cs_main_header">
+        <div class="container">
+            <div class="cs_main_header_in">
+                <div class="cs_main_header_right">
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'logout_page' %}" class="cs_btn cs_style_1 cs_btn_white">خروج از حساب</a>
+                    {% else %}
+                        <a href="{% url 'register_page' %}" class="cs_btn cs_style_1 cs_btn_white">ثبت نام / ورود</a>
+                    {% endif %}
+                </div>
+                <div class="cs_main_header_center">
+                    <div class="cs_nav cs_medium cs_primary_font">
+                        <ul class="cs_nav_list">
+                            <li class="cs_mega_menu">
+                                <a href="{% url 'home_page' %}">صفحه اصلی</a>
+                                <span class="cs_munu_dropdown_toggle"><span></span></span>
+                            </li>
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                    <li>
+                                        <a href="/admin/">پنل ادمین</a>
+                                    </li>
+                                {% endif %}
+                                <li>
+                                    <a href="{% url 'user_panel' %}">پنل کاربری</a>
+                                </li>
+                            {% endif %}
+                            <li>
+                                <a href="{% url 'service' %}">خدمات</a>
+                            </li>
+                            <li class=''>
+                                <a href="{% url 'article_list' %}">وبلاگ</a>
+                                <span class="cs_munu_dropdown_toggle"><span></span></span></li>
+                            <li class="menu-item-has-children">
+                                <a href="">خرید کنید</a>
+                                <ul>
+                                    <li><a href="{% url 'product_list' %}">فروشگاه ما</a></li>
+                                    <li><a href="{% url 'user_basket' %}">سبد خرید</a></li>
+                                </ul>
+                                <span class="cs_munu_dropdown_toggle"><span></span></span>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="#">احراز هویت</a>
+                                <ul>
+                                    {% if request.user.is_authenticated %}
+                                        <li><a href="{% url 'logout_page' %}">خروج از حساب</a></li>
+                                    {% else %}
+                                        <li><a href="{% url 'register_page' %}">ثبت نام</a></li>
+                                    {% endif %}
+                                    <li><a href="{% url 'login_page' %}">ورود</a></li>
+                                </ul>
+                                <span class="cs_munu_dropdown_toggle"><span></span></span>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="#">درباره ما</a>
+                                <ul>
+                                    <li><a href="{% url 'team' %}">تیم</a></li>
+                                    <li><a href="{% url 'about_us' %}">اطلاعات تبم</a></li>
+                                </ul>
+                                <span class="cs_munu_dropdown_toggle"><span></span></span>
+                            </li>
+                        </ul>
+                        <span class="cs_menu_toggle"><span></span></span></div>
+                </div>
+                <div class="cs_main_header_left" style="margin-top: 30px; margin-bottom: 20px">
+                    <img src="{{ info_site.site_logo.url }}" width="150px" alt="Logo">
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="cs_hero cs_style_1 cs_primary_bg position-relative"></section>

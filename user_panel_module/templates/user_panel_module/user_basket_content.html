@@ -1,0 +1,135 @@
+{% load poll_extras %}
+
+
+<div class="cs_height_150 cs_height_lg_70"></div>
+<div class="cs_section_heading cs_style_1 cs_type_3 text-center">
+    <div class="container">
+        <p class="cs_section_subtitle cs_accent_color cs_fs_21 mb-0 wow fadeInLeft" data-wow-duration="0.8s"
+           data-wow-delay="0.2s"
+           style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInLeft;">
+            خرید کنید</p>
+        <div class="cs_height_20 cs_height_lg_10"></div>
+        <h2 class="cs_section_title cs_fs_68 mb-0">سبد خرید</h2>
+    </div>
+</div>
+<div class="cs_height_125 cs_height_lg_50"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-xl-8">
+            <div class="table-responsive">
+                <table class="cs_cart_table">
+                    <thead>
+                    <tr>
+                        <th>تولید - محصول</th>
+                        <th>قیمت</th>
+                        <th>تعداد</th>
+                        <th>جمع فرعی</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if order.orderdetail_set.all %}
+                        {% for detail in order.orderdetail_set.all %}
+                            <tr>
+                                <td>
+                                    <div class="cs_cart_table_media">
+                                        <img src="{{ detail.product.image.url }}" alt="Thumb">
+                                        <h3>{{ detail.product.title }}</h3>
+                                    </div>
+                                </td>
+                                <td>{{ detail.product.price|three_digits_currency }}</td>
+                                <td>
+                                    {% if not order.is_close %}
+                                        <div class="cs_quantity">
+                                            <a class="cs_quantity_button cs_increment"
+                                               onclick="changeOrderDetailCount({{ detail.id }}, 'increase')">
+                                                <i class="fa-solid fa-angle-up"></i>
+                                            </a>
+                                            <span class="cs_quantity_input">{{ detail.count }}</span>
+                                            <a class="cs_quantity_button cs_decrement"
+                                               onclick="changeOrderDetailCount({{ detail.id }}, 'decrease')">
+                                                <i class="fa-solid fa-angle-down"></i>
+                                            </a>
+                                        </div>
+                                    {% else %}
+                                        <span>{{ detail.count }}</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ detail.get_total_price|three_digits_currency }}</td>
+                                {% if not order.is_close %}
+                                    <td class="text-center">
+                                        <button class="cs_cart-table-close"
+                                                onclick="removeOrderDetail({{ detail.id }})">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <div class="alert alert-primary text-center">
+                            <p>سبد خرید شما خالی میباشد</p>
+                        </div>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="cs_height_5 cs_height_lg_5"></div>
+            <div class="cs_cart-offer">
+                {% if not order.is_close %}
+                    <div>
+                        <a href="{% url 'product_list' %}" class="cs_product_btn cs_semi_bold">به روز رسانی سبد
+                            خرید</a>
+                    </div>
+                {% endif %}
+                {% if order.is_close %}
+                    <p class="color-red cs_bold">** <br>کاربر گرامی ، سبد خرید شما بسته شده است ! لطفا در ابتدا خرید خود
+                        را کامل فرمایید تا سبد خرید جدید برای شما ساخته شود </p>
+                    <p class="color-red cs_bold">** <br>اگر از خرید خود پشیمان شده اید و قصد حذف سبد خرید خود را دارید ،
+                        با پشتیبانی ما تماس بگیرید</p>
+
+                {% endif %}
+            </div>
+            <div class="cs_height_30 cs_height_lg_30"></div>
+        </div>
+        <div class="col-xl-4">
+            <div class="cs_shop-side-spacing">
+                <div class="cs_shop-card">
+                    <h2>مجموع سبد خرید</h2>
+                    <table class="cs_medium">
+                        <tbody>
+                        <tr>
+                            <td class="cs_semi_bold">هزینه پست</td>
+                            <td class="text-end color-green cs_bold">
+                                {% if post_price == 0 %}
+                                    رایگان
+                                {% else %}
+                                    {{ post_price | three_digits_currency }}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr class="cs_semi_bold">
+                            <td>جمع کل</td>
+                            <td class="text-end">{{ total_amount|three_digits_currency }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="cs_height_30 cs_height_lg_30"></div>
+                    {% if order.orderdetail_set.all %}
+                        <form action="{% url 'continue_payment' %}">
+                            <button class="cs_product_btn cs_semi_bold w-100">اقدام به پرداخت</button>
+                        </form>
+                        <div class="cs_height_30 cs_height_lg_30"></div>
+                        <p class="color-red cs_bold">** با فشردن دکمه بالا سبد خرید شما بسته میشود و دیگر قادر به تغییر آن
+                            نخواهید بود</p>
+                        <p class="color-red cs_bold">** لطفا ابتدا از صحت اطلاعات حساب کاربری و آدرس پستی خود اطمینان حاصل
+                            فرمایید</p>
+                    {% endif %}
+
+                </div>
+                <div class="cs_height_30 cs_height_lg_30"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cs_height_120 cs_height_lg_50"></div>
