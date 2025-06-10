@@ -1,4 +1,4 @@
-<h1 align=center>PouryaTel</h1>
+<h1 align=center>MacanSport</h1>
 <p align=center>سایت فروشگاهی</p>
 <h3>ابزار های استفاده شده :</h3>
 <ul>
